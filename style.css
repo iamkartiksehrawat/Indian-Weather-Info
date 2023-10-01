@@ -11,7 +11,7 @@ body{
 }
 
 .container{
-    max-width: 30%;
+    max-width: 40%;
     margin: 100px auto;
     padding: 28px;
     background-image: linear-gradient(360deg, rgb(8, 2, 132) 0%, rgb(22, 22, 172) 25%, rgba(0,212,255,1) 100%);
@@ -19,7 +19,7 @@ body{
 }
 
 .top-bar{
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -56,6 +56,16 @@ body{
     background-color: rgb(171, 171, 171);
 }
 
+.mylocation{
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    background-image: linear-gradient( rgb(255, 27, 27) 10.6%, rgb(211, 0, 0) 97.7%);
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 .w-icon{
     display: flex;
     max-width: 50%;
@@ -65,7 +75,7 @@ body{
 .city{
     display: flex;
     color: white;
-    max-width: 80%;
+    max-width: 90%;
     font-size: 56px;
     font-weight: 600;
     justify-content: center;
@@ -145,12 +155,6 @@ body{
     }
 }
 
-@media(max-width: 1050px)
-{
-    .container{
-        max-width: 40%;
-    }
-}
 
 @media(max-width: 850px)
 {
@@ -215,6 +219,8 @@ body{
     .errorval{
         font-size: 12px;
     }
+
+    .search-bar::placeholder{
+        font-size: 12px;
+    }
 }
-
-
