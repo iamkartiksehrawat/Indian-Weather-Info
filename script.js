@@ -101,7 +101,7 @@ const whereami = async function()
     try{
         const pos = await getlocation();
         const {latitude : lat ,longitude :long} = pos.coords;
-        const response = await fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=1&appid=a58a271ede59dacda3393054e296a469`)
+        const response = await fetch(`https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=1&appid=a58a271ede59dacda3393054e296a469`)
         const data = await response.json();
         const {state} = data[0];
         userstate=state;
