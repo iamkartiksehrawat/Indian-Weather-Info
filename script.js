@@ -1,5 +1,10 @@
 'use strict';
 
+////////////////////////////
+
+//storing user state so next time it do not take time
+let userstate="";
+
 /////////////////////////////////////////////
 
 //query selector
@@ -15,6 +20,7 @@ const windsel = document.querySelector('.wind');
 const exdetails = document.querySelector('.ex-details');
 const wicon = document.querySelector('.w-icon');
 const apidata = document.querySelector('.apidata');
+const mylocation = document.querySelector('.mylocation');
 
 /////////////////////////////////////////////
 
@@ -65,6 +71,12 @@ const renderweather = function(data)
 
 const fetchweather = function(loc)
 {
+    if(loc=="")
+    {
+        rendererror("No result");
+        return;
+    }
+
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${loc},IN&appid=a58a271ede59dacda3393054e296a469`)
     .then(response => response.json())
     .then(data => {
@@ -76,6 +88,49 @@ const fetchweather = function(loc)
     })
     .catch(err => rendererror(err.message));
 }
+
+const getlocation = function()
+{
+    return new Promise(function(resolve,reject)
+    {
+        navigator.geolocation.getCurrentPosition(resolve,reject);
+    });
+};
+
+const whereami = async function()
+{
+    try{
+        const pos = await getlocation();
+        const {latitude : lat ,longitude :long} = pos.coords;
+        const response = await fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=1&appid=a58a271ede59dacda3393054e296a469`)
+        const data = await response.json();
+        const {state} = data[0];
+        userstate=state;
+        fetchweather(state);
+    }catch(err)
+    {
+        rendererror(err.message);
+        return;
+    }
+    
+};
+
+
+///////////////////////////////////////////////////////////
+
+mylocation.addEventListener('click',function()
+{
+    console.log(userstate);
+    if(userstate=="")
+    {
+        whereami();
+    }
+    else
+    {
+        fetchweather(userstate);
+    }
+    
+});
 
 search.addEventListener('click',function()
 {
