@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="./script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!--TOP LEVEL -->
+
+        <div class="top-bar">
+            <input type="text" class="search-bar" placeholder="enter Indian state">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 search-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+            </svg>
+        </div>
+
+        <div class="apidata hidden">
+            <!--MID LEVEL -->
+
+            <img src="#" alt="weather-icon" class="w-icon">
+            <span class="city">Delhi</span>
+            <span class="temp">22 C</span>
+
+            <!--END LEVEL -->
+
+            <div class="ex-details">
+                <div class="details-con">
+                    <img src="./humidity.png" class="side-icons">
+                    <span>Humidity :</span>
+                    <span class="humidity">50%</span>
+                </div>
+
+                <div class="details-con">
+                    <img src="./wind.png" class="side-icons">
+                    <span>Wind :</span>
+                    <span class="wind">50 Km/hr</span>
+                </div>
+            </div>
+        </div>
+
+        <!--ERROR WINDOW-->
+        <div class="errorwindow hidden">
+            <img src="./error.png" class="errorimg">
+            <span>OOPs!!</span>
+            <span class="errorval">City not Found</span>
+        </div>
+    </div>
+</body>
+</html>
