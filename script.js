@@ -1,4 +1,4 @@
-'use strict';
+'Use Strict';
 
 ////////////////////////////
 
@@ -48,7 +48,6 @@ const renderweather = function(data)
     temp=temp-273.15;
     temp=temp.toFixed(2);
     const {icon} = data.weather[0];
-    console.log(icon);
 
     //inserting value in all parameter of app
     wicon.src=`https://openweathermap.org/img/wn/${icon}@2x.png`;
@@ -120,7 +119,6 @@ const whereami = async function()
 
 mylocation.addEventListener('click',function()
 {
-    console.log(userstate);
     if(userstate=="")
     {
         whereami();
