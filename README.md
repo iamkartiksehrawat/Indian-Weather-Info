@@ -1,4 +1,4 @@
-# Weather App
+# Weather Info Website
 
 # Deployment Link
 https://iamkartiksehrawat.github.io/WeatherApp/
